@@ -1,0 +1,24 @@
+<template name="urunDuzenle">
+    {{#if currentUser}}
+        <div class="col-md-5">
+            <h4>{{islem}}</h4>
+            <form name="duzenleForm" id="duzenleForm" class="form-horizontal">
+                <div class="form-group">
+                    <input type="text" name="urunIsmi" id="" value="{{seciliUrun 'urun'}}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="urunFiyat" id="" value="{{seciliUrun 'fiyat'}}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="urunStok" id="" value="{{seciliUrun 'stok'}}" class="form-control">
+                </div>
+
+                <button class="btn btn-success">{{islemYazi}}</button>
+
+            </form>
+
+        </div>
+    {{/if}}
+</template>
+
+

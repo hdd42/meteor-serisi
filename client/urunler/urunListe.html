@@ -1,0 +1,21 @@
+<template name="urunListe">
+    <div class="col-md-7">
+        <h4>Urun Listesi</h4>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Urun</th>
+                <th>Fiyat</th>
+                <th>Stok</th>
+                <th>islemler</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each urunler}}
+                {{> urun}}
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>
