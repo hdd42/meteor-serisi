@@ -24,19 +24,24 @@ Template.urunDuzenle.events({
 
         const urun = event.target;
         const yeniUrun = {
+            public:urun.public.checked ,
             urun: urun.urunIsmi.value,
-            fiyat: urun.urunFiyat.value,
-            stok: urun.urunStok.value
+            fiyat:parseInt(urun.urunFiyat.value),
+            stok: parseInt(urun.urunStok.value)
         }
-
+        console.log(yeniUrun)
         const islem = Session.get('islem')
         if (islem == 'Ürün Düzenle') {
             const seciliUrun = Session.get('seciliUrun')
-            Urunler.update(seciliUrun._id, yeniUrun)
+            //Urunler.update(seciliUrun._id, yeniUrun)
+            Meteor.call('urunler.guncelle',seciliUrun._id, yeniUrun);
             Session.set('islem', "Ürün Ekle")
         }
         else {
-            Urunler.insert(yeniUrun); //
+           // Urunler.insert(yeniUrun); //
+            yeniUrun.ekleyenId = Meteor.userId()
+            yeniUrun.kullaniciAdi= Meteor.user().emails[0].address;
+            Meteor.call('urunler.ekle', yeniUrun);
         }
 
         urun.urunIsmi.value = "";

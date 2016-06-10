@@ -12,7 +12,12 @@ Template.urun.events({
     },
     'click #sil'(event){
        const urun = this;
-       Urunler.remove(urun._id)
-
+       // Urunler.remove(urun._id)
+        Meteor.call('urunler.sil', urun._id);
+    },
+    'click #stokdisi'(event){
+        const urun = this;
+        Meteor.call('urunler.stokdisi', urun._id);
     }
+
 })

@@ -13,3 +13,8 @@ Template.urunListe.helpers({
     }
 });
 
+Template.urunListe.onCreated(function(){
+    window.Urunler = Urunler; 
+});
+
+Urunler.insert({urun:'gecersiz urun ismi @@@@', fiyat:"gecersiz fiyat", stok:"gecersiz stok"})

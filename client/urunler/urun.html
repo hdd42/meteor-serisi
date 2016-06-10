@@ -4,13 +4,20 @@
         <td>{{urun}}</td>
         <td>{{fiyat}}</td>
         <td>{{stok}}</td>
+
+
         <td>
             {{#if currentUser}}
                 <button id="duzenle" class="btn btn-success btn-xs"> Duzenle</button>
                 <button id="sil" class="btn btn-danger btn-xs"> Sil</button>
+                <button id="stokdisi" class="btn btn-warning btn-xs"> Stok Sıfırla</button>
             {{else}}
                 Lutfen giris yapin!
             {{/if}}
+        </td>
+        <td>
+            {{#if public}} Herkese Acik Urun -{{/if}}
+            <span class="badge bg-info">{{kullaniciAdi}}</span>
         </td>
     </tr>
 </template>
